@@ -2,6 +2,8 @@ package main;
 
 import java.util.Random;
 
+import javax.swing.JFrame;
+
 import agent.Ball;
 import core.Engine;
 import environment.Environment;
@@ -44,6 +46,12 @@ public class Main {
 		
 		Render render = new Render(engine, environment, caseSize);
 		engine.addObserver(render);
+		
+		JFrame frame = new JFrame();
+		frame.setContentPane(render);
+		frame.setVisible(true);
+		frame.pack();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		engine.run(0);
 	}
