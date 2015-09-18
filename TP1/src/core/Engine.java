@@ -2,6 +2,7 @@ package core;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 
@@ -35,6 +36,10 @@ public class Engine extends Observable {
 	public void addAgent(Agent agent) {
 		this.agents.add(agent);
 		agent.initialize();
+	}
+
+	public Iterator<Agent> getAgents() {
+		return this.agents.iterator();
 	}
 
 }

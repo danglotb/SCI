@@ -42,7 +42,7 @@ public class Main {
 		for(int i=0; i<ballNumber; i++)
 			engine.addAgent(new Ball(environment, random.nextInt(boardWidth), random.nextInt(boardHeight), random.nextInt(maxVelocity*2+1)-maxVelocity, random.nextInt(maxVelocity*2+1)-maxVelocity));
 		
-		Render render = new Render(environment, caseSize);
+		Render render = new Render(engine, environment, caseSize);
 		engine.addObserver(render);
 		
 		engine.run(0);

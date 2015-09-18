@@ -26,6 +26,9 @@ public class Ball extends Agent {
 	public void execute() {
 		this.environment.setAgent(null, this.x, this.y);
 		
+		int oldX = this.x;
+		int oldY = this.y;
+		
 		this.x += this.velocityX;
 		if(this.x < 0) {
 			this.x = -this.x;
@@ -45,7 +48,26 @@ public class Ball extends Agent {
 			this.velocityY = -this.velocityY;
 		}
 		
+		if(this.environment.getAgent(this.x, this.y) != null) {	
+			Ball other = (Ball)this.environment.getAgent(this.x, this.y);
+			other.velocityX = -other.velocityX;
+			other.velocityY = -other.velocityY;
+			
+			this.velocityX = -this.velocityX;
+			this.velocityY = -this.velocityY;
+			this.x = oldX;
+			this.y = oldY;	
+		}
+		
 		this.environment.setAgent(this, this.x, this.y);
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	
+	public int getY() {
+		return this.y;
 	}
 
 }
