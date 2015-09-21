@@ -14,7 +14,6 @@ import agent.Agent;
 import agent.Ball;
 
 import core.Engine;
-
 import environment.Environment;
 
 public class Render extends JPanel implements Observer {

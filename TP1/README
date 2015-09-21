@@ -1,0 +1,35 @@
+Benjamin DANGLOT
+Pierre FALEZ
+
+TP 1 : Simulateur de chambre a particules.
+
+compiler : 
+
+javac -d bin/ -cp src src/*/*.java 
+
+(necessite de cree le repertoire bin avant)
+
+executer:
+
+java -cp bin main.Main <Width> <Height> <SizeOfCase> <NumberOfBall> <SleepTime>
+
+Tous les parametres sont des entiers. 
+Seul SleepTime est optionel (valeur par défaut = 15). Il s'agit du paramètre passe a la methode static sleep de la class Thread.
+
+exemple : java -cp bin main.Main 100 100 10 100
+
+Application :
+
+La classe Engine est la classe principale qui contient la liste des agents. On mélange cette liste a chaque iteration, et on appel execute des agents.
+
+Ce sont les agents (la classe Balle herite de la class Agent) qui communique leurs actions à l'environnement(classe Environment) : ici il s'agit simplement de son déplacement. Les collisions
+sont egalement a la charge de l'agent.
+
+Les Balles sont caracterise par leurs vitesse ainsi que leur position. L'initialisation de la vitesse est un random (dans le main).
+
+La classe Render permet d'avoir une visualisation de ce qu'il se passe.
+
+
+Remarques : 
+
+Lorsqu'il y a peu de balles, on peut observer des chutes fps. Nous n'avons pas trouve la cause de ce phenomene.
