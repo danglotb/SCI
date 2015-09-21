@@ -1,5 +1,7 @@
 package core;
 
+import gui.Render;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,6 +19,7 @@ public class Engine extends Observable {
 	}
 
 	public void run(int nbTurn) {
+		
 		for(int i=0; nbTurn == 0 ? true : i<nbTurn; i++) {
 			Collections.shuffle(agents);
 			for(int j=0; j<agents.size(); j++)
@@ -26,7 +29,7 @@ public class Engine extends Observable {
 			this.notifyObservers();
 			
 			try {
-				Thread.sleep(30);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				return;
 			}
