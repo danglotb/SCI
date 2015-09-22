@@ -1,28 +1,24 @@
-package agent;
+package bille;
 
-import environment.Environment;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import core.Agent;
+import core.Engine;
+import core.Environment;
 
 public class Ball extends Agent {
-	
-	public int x;
-	public int y;
-	
-	public int velocityX;
-	public int velocityY;
+
+	private int velocityX;
+	private int velocityY;
 	
 	public Ball(Environment environment, int x, int y, int velocityX, int velocityY) {
-		super(environment);
-		this.x = x;
-		this.y = y;
+		super(environment, x, y);
 		this.velocityX = velocityX;
 		this.velocityY = velocityY;
 	}
 	
-	public void initialize() {
-		this.environment.setAgent(this, this.x, this.y);
-	}
-
-	public void execute() {
+	public void execute(Engine engine) {
 		this.environment.setAgent(null, this.x, this.y);
 		
 		int oldX = this.x;
@@ -68,13 +64,9 @@ public class Ball extends Agent {
 		
 		this.environment.setAgent(this, this.x, this.y);
 	}
-	
-	public int getX() {
-		return this.x;
-	}
-	
-	public int getY() {
-		return this.y;
+
+	public void paint(Graphics g, Rectangle r) {
+		
 	}
 
 }

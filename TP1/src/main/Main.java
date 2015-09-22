@@ -4,9 +4,10 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
-import agent.Ball;
+import bille.Ball;
+
 import core.Engine;
-import environment.Environment;
+import core.Environment;
 import gui.Render;
 
 public class Main {

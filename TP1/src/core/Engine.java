@@ -6,28 +6,30 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 
-import agent.Agent;
-
 public class Engine extends Observable {
-	
+
 	private List<Agent> agents;
-	
+
 	private int sleepTime;
-	
+
 	public Engine(int sleepTime) {
 		this.agents = new ArrayList<Agent>();
 	}
 
 	public void run(int nbTurn) {
-		
-		for(int i=0; nbTurn == 0 ? true : i<nbTurn; i++) {
+
+		for (int i = 0; nbTurn == 0 ? true : i < nbTurn; i++) {
 			Collections.shuffle(agents);
-			for(int j=0; j<agents.size(); j++)
-				agents.get(j).execute();
+			for (int j = 0; j < agents.size(); j++) {
+				if (agents.get(j).isAlive())
+					agents.get(j).execute(this);
+				else
+					agents.remove(j--);
+			}
 			
 			this.setChanged();
 			this.notifyObservers();
-			
+
 			try {
 				Thread.sleep(sleepTime);
 			} catch (InterruptedException e) {
