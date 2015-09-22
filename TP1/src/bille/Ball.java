@@ -1,27 +1,6 @@
 package bille;
 
-<<<<<<< HEAD:TP1/src/agent/Ball.java
 import java.awt.Color;
-
-import environment.Environment;
-
-public class Ball extends Agent {
-	
-	private int x;
-	private int y;
-	
-	private int velocityX;
-	private int velocityY;
-	
-	private Color color;
-	
-	
-	
-	public Ball(Environment environment, int x, int y, int velocityX, int velocityY, Color color) {
-		super(environment);
-		this.x = x;
-		this.y = y;
-=======
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -33,10 +12,10 @@ public class Ball extends Agent {
 
 	private int velocityX;
 	private int velocityY;
+	private Color color;
 	
-	public Ball(Environment environment, int x, int y, int velocityX, int velocityY) {
+	public Ball(Environment environment, int x, int y, int velocityX, int velocityY, Color color) {
 		super(environment, x, y);
->>>>>>> d98164924b93a844b5efd56744643340d34e1ad4:TP1/src/bille/Ball.java
 		this.velocityX = velocityX;
 		this.velocityY = velocityY;
 		this.color = color;
@@ -90,11 +69,8 @@ public class Ball extends Agent {
 	}
 
 	public void paint(Graphics g, Rectangle r) {
-		
-	}
-	
-	public Color getColor() {
-		return this.color;
+		g.setColor(this.color);
+		g.fillOval(r.x, r.y, r.width, r.height);
 	}
 
 }

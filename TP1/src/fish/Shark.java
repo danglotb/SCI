@@ -1,5 +1,6 @@
 package fish;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -70,7 +71,8 @@ public class Shark extends Agent {
 	}
 
 	public void paint(Graphics g, Rectangle r) {
-		
+		g.setColor(Color.red);
+		g.fillRect(r.x, r.y, r.width, r.height);
 	}
 
 }

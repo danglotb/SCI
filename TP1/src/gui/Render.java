@@ -3,6 +3,7 @@ package gui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
@@ -12,15 +13,9 @@ import javax.swing.SwingUtilities;
 
 import bille.Ball;
 
-<<<<<<< HEAD
-import core.Engine;
-import environment.Environment;
-=======
-
 import core.Agent;
 import core.Engine;
 import core.Environment;
->>>>>>> d98164924b93a844b5efd56744643340d34e1ad4
 
 public class Render extends JPanel implements Observer {
 	
@@ -47,9 +42,8 @@ public class Render extends JPanel implements Observer {
 		Iterator<Agent> it = this.engine.getAgents();
 		
 		while(it.hasNext()) {
-			Ball current = (Ball)it.next();
-			g.setColor(current.getColor());
-			g.fillOval(current.getX()*this.caseSize, current.getY()*this.caseSize, this.caseSize, this.caseSize);
+			Agent agent = it.next();
+			agent.paint(g, new Rectangle(agent.getX()*this.caseSize, agent.getY()*this.caseSize, this.caseSize, this.caseSize));
 		}
 	  }
 

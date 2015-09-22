@@ -70,4 +70,16 @@ public class Environment {
 		}
 		return neighbors;
 	}
+
+	public List<Point> getEmptyCell() {
+		List<Point> cells = new ArrayList<Point>();
+		for (int x = 0; x < this.width; x++) {
+			for (int y = 0; y < this.height; y++) {
+				if (board[x][y] == null) {
+					cells.add(new Point(x, y));
+				}
+			}
+		}
+		return cells;
+	}
 }

@@ -9,15 +9,8 @@ import java.util.Observable;
 public class Engine extends Observable {
 
 	private List<Agent> agents;
-<<<<<<< HEAD
-	
 	private int sleepTime;
 	
-=======
-
-	private int sleepTime;
-
->>>>>>> d98164924b93a844b5efd56744643340d34e1ad4
 	public Engine(int sleepTime) {
 		this.agents = new ArrayList<Agent>();
 		this.sleepTime = sleepTime;
@@ -38,11 +31,7 @@ public class Engine extends Observable {
 			this.notifyObservers();
 
 			try {
-<<<<<<< HEAD
 				Thread.sleep(this.sleepTime);
-=======
-				Thread.sleep(sleepTime);
->>>>>>> d98164924b93a844b5efd56744643340d34e1ad4
 			} catch (InterruptedException e) {
 				return;
 			}
