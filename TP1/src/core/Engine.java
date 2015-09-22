@@ -1,7 +1,5 @@
 package core;
 
-import gui.Render;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,8 +12,11 @@ public class Engine extends Observable {
 	
 	private List<Agent> agents;
 	
-	public Engine() {
+	private int sleepTime;
+	
+	public Engine(int sleepTime) {
 		this.agents = new ArrayList<Agent>();
+		this.sleepTime = sleepTime;
 	}
 
 	public void run(int nbTurn) {
@@ -29,7 +30,7 @@ public class Engine extends Observable {
 			this.notifyObservers();
 			
 			try {
-				Thread.sleep(20);
+				Thread.sleep(this.sleepTime);
 			} catch (InterruptedException e) {
 				return;
 			}
