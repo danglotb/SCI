@@ -5,9 +5,10 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
-import agent.Ball;
+import bille.Ball;
+
 import core.Engine;
-import environment.Environment;
+import core.Environment;
 import gui.Render;
 
 public class Main {
@@ -24,8 +25,13 @@ public class Main {
 		int boardHeight = 0;
 		int caseSize = 0;
 		int ballNumber = 0;
+<<<<<<< HEAD
 		int maxVelocity = 1;
 		int sleepTime = 50;
+=======
+		int maxVelocity = 2;
+		int sleepTime = 15;
+>>>>>>> d98164924b93a844b5efd56744643340d34e1ad4
 		
 		try {
 			boardWidth = Integer.parseInt(args[0]);

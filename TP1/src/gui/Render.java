@@ -10,11 +10,17 @@ import java.util.Observer;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import agent.Agent;
-import agent.Ball;
+import bille.Ball;
 
+<<<<<<< HEAD
 import core.Engine;
 import environment.Environment;
+=======
+
+import core.Agent;
+import core.Engine;
+import core.Environment;
+>>>>>>> d98164924b93a844b5efd56744643340d34e1ad4
 
 public class Render extends JPanel implements Observer {
 	
