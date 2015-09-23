@@ -27,6 +27,7 @@ public class Environment {
 	public void moveAgent(Agent agent, int x, int y) {
 		this.board[agent.getX()][agent.getY()] = null;
 		this.board[x][y] = agent;
+		agent.setPosition(x, y);
 	}
 	
 	public void setAgent(Agent agent, Point p) {
@@ -36,6 +37,7 @@ public class Environment {
 	public void moveAgent(Agent agent, Point p) {
 		this.board[agent.getX()][agent.getY()] = null;
 		this.board[p.x][p.y] = agent;
+		agent.setPosition(p.x, p.y);
 	}
 
 	public int getWidth() {

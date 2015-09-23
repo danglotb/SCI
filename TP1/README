@@ -22,14 +22,13 @@ Application :
 
 La classe Engine est la classe principale qui contient la liste des agents. On mélange cette liste a chaque iteration, et on appel execute des agents.
 
-Ce sont les agents (la classe Balle herite de la class Agent) qui communique leurs actions à l'environnement(classe Environment) : ici il s'agit simplement de son déplacement. Les collisions
-sont egalement a la charge de l'agent.
+L'environement est discret : c'est un tableau 2 dimensions contenant 1 ou 0 agent par case.
 
-Les Balles sont caracterise par leurs vitesse ainsi que leur position. L'initialisation de la vitesse est un random (dans le main).
+Ce sont les agents (la classe Ball herite de la class Agent) qui communique leurs actions à l'environnement(classe Environment) : ici il s'agit simplement de son déplacement. Les collisions
+sont egalement a la charge de l'agent. Nous avons fait le choix simple d'inverser les vitesse verticale et/ou horizontale pour les colision avec le bord de l'environement et d'inverser les vitesse sur les 2 axes des deux agents lors d'une collision entre deux balle.
 
-La classe Render permet d'avoir une visualisation de ce qu'il se passe.
+Les Balles sont caracterisés par leurs vitesses ainsi que leurs positions. L'initialisation de la position et de la vitesse est se fait aléatoirement (dans le main).
+
+La classe Render permet d'avoir une visualisation de ce qu'il se passe. Chaque agent possede une méthode paint qui est apellé au moment ou il est nécéssaire de redéssiner la fenetre. La synchronisation entre la vue et le modele se fait via un pattern observer/observable
 
 
-Remarques : 
-
-Lorsqu'il y a peu de balles, on peut observer des chutes fps. Nous n'avons pas trouve la cause de ce phenomene.

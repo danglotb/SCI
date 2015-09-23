@@ -25,6 +25,8 @@ public abstract class Agent {
 	
 	public abstract void execute(Engine engine);
 	
+	public abstract void paint(Graphics g, Rectangle r);
+	
 	public int getX() {
 		return this.x;
 	}
@@ -35,11 +37,15 @@ public abstract class Agent {
 	
 	public void die() {
 		this.isAlive = false;
+		this.environment.setAgent(null, this.x, this.y);
 	}
 	
 	public boolean isAlive() {
 		return this.isAlive;
 	}
-	
-	public abstract void paint(Graphics g, Rectangle r);
+
+	public void setPosition(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 }
