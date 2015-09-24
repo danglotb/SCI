@@ -1,5 +1,6 @@
 package core;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ public class Engine extends Observable {
 
 	private List<Agent> agents;
 	private int sleepTime;
+	private int cptTurn;
 	
 	public Engine(int sleepTime) {
 		this.agents = new ArrayList<Agent>();
@@ -18,7 +20,7 @@ public class Engine extends Observable {
 
 	public void run(int nbTurn) {
 
-		for (int i = 0; nbTurn == 0 ? true : i < nbTurn; i++) {
+		for (this.cptTurn = 0; nbTurn == 0 ? true : this.cptTurn < nbTurn; this.cptTurn++) {
 			Collections.shuffle(agents);
 			for (int j = 0; j < agents.size(); j++) {
 				if (agents.get(j).isAlive())
@@ -45,6 +47,10 @@ public class Engine extends Observable {
 
 	public Iterator<Agent> getAgents() {
 		return this.agents.iterator();
+	}
+
+	public int getTurn() {
+		return this.cptTurn;
 	}
 
 }
