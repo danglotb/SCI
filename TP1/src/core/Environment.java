@@ -52,8 +52,8 @@ public class Environment {
 		List<Agent> neighbors = new ArrayList<Agent>();
 		for (int x = -1; x < 2; x++) {
 			for (int y = -1; y < 2; y++) {
-				if (x != 0 && y != 0 && a.getX()+x >= 0 && a.getX()+x < this.width 
-						&& a.getY()+y >= 0 && a.getY()+y < this.height&& board[a.getX()+x][a.getY()+y] != null)
+				if ( (x != 0 || y != 0) && a.getX()+x >= 0 && a.getX()+x < this.width 
+						&& a.getY()+y >= 0 && a.getY()+y < this.height && board[a.getX()+x][a.getY()+y] != null)
 					neighbors.add(board[a.getX()+x][a.getY()+y]);
 			}
 		}
@@ -62,10 +62,10 @@ public class Environment {
 	
 	public List<Point> getEmptyNeighborHood(Agent a) {
 		List<Point> neighbors = new ArrayList<Point>();
-		for (int x = -1; x < 2; x++) {
-			for (int y = -1; y < 2; y++) {
-				if (x != 0 && y != 0 && a.getX()+x >= 0 && a.getX()+x < this.width 
-						&& a.getY()+y >= 0 && a.getY()+y < this.height && board[a.getX()+x][a.getY()+y] == null) {
+		for (int x = -1 ; x < 2 ; x++) {
+			for (int y = -1 ; y < 2 ; y++) {
+				if( (x != 0 || y != 0) && (a.getX()+x >= 0) && (a.getX()+x < this.width) 
+						&& (a.getY()+y >= 0) && (a.getY()+y < this.height) && (this.board[a.getX()+x][a.getY()+y] == null)) {
 					neighbors.add(new Point(a.getX()+x, a.getY()+y));
 				}
 			}
@@ -77,7 +77,7 @@ public class Environment {
 		List<Point> cells = new ArrayList<Point>();
 		for (int x = 0; x < this.width; x++) {
 			for (int y = 0; y < this.height; y++) {
-				if (board[x][y] == null) {
+				if (this.board[x][y] == null) {
 					cells.add(new Point(x, y));
 				}
 			}

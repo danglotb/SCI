@@ -3,17 +3,26 @@ Pierre FALEZ
 
 TP2 : Proie, Prédateur.
 
-compiler : 
+contenu : README2, src, lib.
 
-javac -d bin/ -cp src src/*/*.java 
+Pour utiliser l'application a besoin de la lib xchart(117 ko) a ajouter au build path dans eclipse.
 
-(necessite de cree le repertoire bin avant)
+30 30 10 15
 
-executer:
+Application :
 
-java -cp bin main.Main <Width> <Height> <SizeOfCase> <SleepTime>
+Nous avons chercher de bonnes valeurs pour le nombre de thon/requins et les temps de reproduction/faim a tatons.
+ Apres plusieurs essais, nous avons reussis a atteindre un certain équilibre : 
+	-nombre de Thon = 200;
+	-nombre de requins = 10;
+	-temps de reproduction des thons = 2;
+	-temps de reproduction des requins = 10;
+	-temps de famines des requins = 3;
 
-Tous les parametres sont des entiers.
+Lorsque la simulation tourne, on peut obsverser en temps réel a droite, les courbes de populations. 
+Le ratio Shark/Tuna ne forme pas une ellipse, mais il reste en équilibre.
 
-exemple : java -cp bin experiment.fish.Main 25 25 10 30
+Les poissons (Requins et thon) peuvent se deplacer ET se reproduire durant le meme "temps" de parole. 
+On considere que lorsqu'un requins mange un thon, il se deplace dans sa case (et on remet a 0 sont temps de faim).
 
+Les poissons choississent une case pour se deplacer aleatoirement, sauf lorsqu'un requins peut manger un thon.

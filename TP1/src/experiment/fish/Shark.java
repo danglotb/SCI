@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -32,8 +33,7 @@ public class Shark extends Agent {
 		
 		if (this.timeSinceFeed > this.timeForStarving) {// die for starving
 			this.die();
-		}
-		else {
+		} else {
 			List<Agent> neighbors = this.environment.getNeighborHood(this);
 			Agent target = getTuna(neighbors);
 			if (target != null) {// eat the tuna
@@ -64,6 +64,7 @@ public class Shark extends Agent {
 	}
 
 	private Agent getTuna(List<Agent> neighbors) {
+//		Collections.shuffle(neighbors);
 		for (Agent a : neighbors) {
 			if (a instanceof Tuna) {
 				return a;

@@ -31,12 +31,10 @@ public class Main {
 		int boardHeight = 100;
 		int caseSize = 10;
 		int sleepTime = 50;
-		int tunaReproductionTime = 3;
-		int sharkReproductionTime = 12;
-		int sharkStarvingTime = 6;
+		int tunaReproductionTime = 2;
+		int sharkReproductionTime = 10;
+		int sharkStarvingTime = 3;
 		
-		
-
 		try {
 			boardWidth = Integer.parseInt(args[0]);
 			boardHeight = Integer.parseInt(args[1]);
@@ -95,6 +93,7 @@ public class Main {
 		frame.setContentPane(rootPane);
 		frame.setVisible(true);
 		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		engine.run(0);

@@ -24,7 +24,7 @@ public class Engine extends Observable {
 			for (int j = 0; j < agents.size(); j++) {
 				if (agents.get(j).isAlive())
 					agents.get(j).execute(this);
-				else
+				else 
 					agents.remove(j--);
 			}
 			

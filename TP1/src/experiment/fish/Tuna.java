@@ -24,7 +24,6 @@ public class Tuna extends Agent {
 
 	public void execute(Engine engine) {
 		List<Point> list = this.environment.getEmptyNeighborHood(this);
-
 		if (list.size() > 0) {
 			Random r = new Random();
 			this.environment.moveAgent(this, list.get(r.nextInt(list.size())));// move
