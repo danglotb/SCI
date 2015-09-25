@@ -1,11 +1,10 @@
 package core;
 
-import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Engine extends Observable {
 
@@ -14,7 +13,7 @@ public class Engine extends Observable {
 	private int cptTurn;
 	
 	public Engine(int sleepTime) {
-		this.agents = new ArrayList<Agent>();
+		this.agents = new CopyOnWriteArrayList<Agent>();
 		this.sleepTime = sleepTime;
 	}
 

@@ -36,21 +36,17 @@ public class Render extends JPanel implements Observer {
 		g.setColor(Color.white);
 		g.fillRect(0, 0, this.environment.getWidth()*this.caseSize, this.environment.getHeight()*this.caseSize);
 
-		synchronized (this) {
 		
 			Iterator<Agent> it = this.engine.getAgents();
 			
 			while(it.hasNext()) {
 				Agent agent = it.next();
-				agent.paint(g, new Rectangle(agent.getX()*this.caseSize, agent.getY()*this.caseSize, this.caseSize, this.caseSize));
+					agent.paint(g, new Rectangle(agent.getX()*this.caseSize, agent.getY()*this.caseSize, this.caseSize, this.caseSize));
 			}
-		}
 	  }
 
 	public void update(Observable o, Object arg) {
-		synchronized (this) {
 			this.repaint();
-		}
 	}
 
 

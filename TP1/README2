@@ -1,0 +1,19 @@
+Benjamin DANGLOT
+Pierre FALEZ
+
+TP2 : Proie, Prédateur.
+
+compiler : 
+
+javac -d bin/ -cp src src/*/*.java 
+
+(necessite de cree le repertoire bin avant)
+
+executer:
+
+java -cp bin main.Main <Width> <Height> <SizeOfCase> <SleepTime>
+
+Tous les parametres sont des entiers.
+
+exemple : java -cp bin experiment.fish.Main 25 25 10 30
+
