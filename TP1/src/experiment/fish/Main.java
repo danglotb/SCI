@@ -26,14 +26,14 @@ public class Main {
 		}
 		
 		int nbTuna = 200;
-		int nbShark = 10;
+		int nbShark = 150;
 		int boardWidth = 100;
 		int boardHeight = 100;
 		int caseSize = 10;
 		int sleepTime = 50;
 		int tunaReproductionTime = 2;
 		int sharkReproductionTime = 10;
-		int sharkStarvingTime = 3;
+		int sharkStarvingTime = 7;
 		
 		try {
 			boardWidth = Integer.parseInt(args[0]);

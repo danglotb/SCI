@@ -11,16 +11,23 @@ public class Engine extends Observable {
 	private List<Agent> agents;
 	private int sleepTime;
 	private int cptTurn;
+	private boolean run;
 	
 	public Engine(int sleepTime) {
 		this.agents = new CopyOnWriteArrayList<Agent>();
 		this.sleepTime = sleepTime;
 	}
 
+	public void stop() {
+		this.run = false;
+	}
+	
 	public void run(int nbTurn) {
 
-		for (this.cptTurn = 0; nbTurn == 0 ? true : this.cptTurn < nbTurn; this.cptTurn++) {
-			Collections.shuffle(agents);
+		this.run = true;
+		
+		for (this.cptTurn = 0; nbTurn == 0 ? true : this.cptTurn < nbTurn && this.run ; this.cptTurn++) {
+//			Collections.shuffle(agents);
 			for (int j = 0; j < agents.size(); j++) {
 				if (agents.get(j).isAlive())
 					agents.get(j).execute(this);

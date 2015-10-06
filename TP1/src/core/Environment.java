@@ -15,6 +15,10 @@ public class Environment {
 		this.width = boardWidth;
 		this.height = boardHeight;
 	}
+	
+	public Agent[][] getAgents() {
+		return this.board;
+	}
 
 	public Agent getAgent(int x, int y) {
 		return this.board[x][y];
