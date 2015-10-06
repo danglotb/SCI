@@ -19,6 +19,7 @@ public class Hunter extends Agent {
 
 	public void execute(Engine engine) {
 		int [][] dTarget = Dijkstra.compute(environment.getAgents(), target.getX(), target.getY());
+		
 		int minX = -1, minY = -1, minValue = Integer.MAX_VALUE;
 		for (int x = this.x-1 ; x < this.x+1 ; x++) {
 			for (int y = this.y-1 ; y < this.y+1 ; y++) {
