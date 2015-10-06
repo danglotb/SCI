@@ -25,8 +25,9 @@ public class Shark extends Agent {
 		super(environment, x, y);
 		this.timeForReproduction = timeForReproduction;
 		this.timeForStarving = timeForStarving;
-		this.timeSinceFeed = 0;
-		this.timeSinceReproduce = 0;
+		Random r = new Random();
+		this.timeSinceFeed = r.nextInt(timeForStarving);
+		this.timeSinceReproduce = r.nextInt(timeForReproduction);
 	}
 
 	public void execute(Engine engine) {

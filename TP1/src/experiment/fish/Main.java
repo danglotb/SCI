@@ -46,6 +46,12 @@ public class Main {
 			return;
 		}
 		
+		System.out.println("Tuna number : "+nbTuna);
+		System.out.println("Shark number : "+nbShark);
+		System.out.println("Tuna reproduction : "+tunaReproductionTime);
+		System.out.println("Tuna reproduction : "+sharkReproductionTime);
+		System.out.println("Shark starving : "+sharkStarvingTime);
+		
 		Engine engine = new Engine(sleepTime);
 		
 		Random random = new Random();
