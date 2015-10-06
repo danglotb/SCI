@@ -20,7 +20,7 @@ public class Engine extends Observable {
 	public void run(int nbTurn) {
 
 		for (this.cptTurn = 0; nbTurn == 0 ? true : this.cptTurn < nbTurn; this.cptTurn++) {
-			Collections.shuffle(agents);
+			//Collections.shuffle(agents);
 			for (int j = 0; j < agents.size(); j++) {
 				if (agents.get(j).isAlive())
 					agents.get(j).execute(this);

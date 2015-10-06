@@ -19,7 +19,8 @@ public class Tuna extends Agent {
 	public Tuna(Environment environment, int x, int y, int time) {
 		super(environment, x, y);
 		this.timeForReproduction = time;
-		this.timeSinceReproduce = 0;
+		Random r = new Random();
+		this.timeSinceReproduce = r.nextInt(this.timeForReproduction);
 	}
 
 	public void execute(Engine engine) {

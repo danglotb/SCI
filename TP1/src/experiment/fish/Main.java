@@ -25,15 +25,18 @@ public class Main {
 			return;
 		}
 		
-		int nbTuna = 200;
-		int nbShark = 10;
+		
+		final float nbTunaRatio = 0.25f;
+		final float nbSharkRatio = 0.025f;
+		final float tunaReproductionTimeRatio = 0.0032f;
+		final float sharkReproductionTimeRatio = 0.016f;
+		final float sharkStarvingTimeRatio = 0.0048f;
+		
 		int boardWidth = 100;
 		int boardHeight = 100;
 		int caseSize = 10;
 		int sleepTime = 50;
-		int tunaReproductionTime = 2;
-		int sharkReproductionTime = 10;
-		int sharkStarvingTime = 3;
+		
 		
 		try {
 			boardWidth = Integer.parseInt(args[0]);
@@ -45,6 +48,18 @@ public class Main {
 			System.out.println(usage);
 			return;
 		}
+		
+		int nbTuna = (int)(nbTunaRatio*boardWidth*boardHeight);
+		int nbShark = (int)(nbSharkRatio*boardWidth*boardHeight);
+		int tunaReproductionTime = Math.max(1, (int)(tunaReproductionTimeRatio*boardWidth*boardHeight));
+		int sharkReproductionTime = Math.max(1, (int)(sharkReproductionTimeRatio*boardWidth*boardHeight));
+		int sharkStarvingTime = Math.max(1, (int)(sharkStarvingTimeRatio*boardWidth*boardHeight));
+		
+		System.out.println("Tuna number : "+nbTuna);
+		System.out.println("Shark number : "+nbShark);
+		System.out.println("Tuna reproduction : "+tunaReproductionTime);
+		System.out.println("Tuna reproduction : "+sharkReproductionTime);
+		System.out.println("Shark starving : "+sharkStarvingTime);
 		
 		Engine engine = new Engine(sleepTime);
 		
