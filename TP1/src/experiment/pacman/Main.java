@@ -1,4 +1,4 @@
-package experiment.fish;
+package experiment.pacman;
 
 import gui.Graph;
 import gui.Render;
@@ -12,8 +12,9 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import core.Agent;
 import core.Engine;
-import core.Environment;
+import experiment.pacman.Environment;
 
 public class Main {
 	
@@ -25,15 +26,15 @@ public class Main {
 			return;
 		}
 		
-		int nbTuna = 200;
-		int nbShark = 150;
 		int boardWidth = 100;
 		int boardHeight = 100;
 		int caseSize = 10;
 		int sleepTime = 50;
-		int tunaReproductionTime = 2;
-		int sharkReproductionTime = 10;
-		int sharkStarvingTime = 7;
+		
+		int nbWall = 100;
+		
+		int nbHunter = 1;
+		int nbAttractor = 5;
 		
 		try {
 			boardWidth = Integer.parseInt(args[0]);
@@ -46,12 +47,6 @@ public class Main {
 			return;
 		}
 		
-		System.out.println("Tuna number : "+nbTuna);
-		System.out.println("Shark number : "+nbShark);
-		System.out.println("Tuna reproduction : "+tunaReproductionTime);
-		System.out.println("Tuna reproduction : "+sharkReproductionTime);
-		System.out.println("Shark starving : "+sharkStarvingTime);
-		
 		Engine engine = new Engine(sleepTime);
 		
 		Random random = new Random();
@@ -59,15 +54,19 @@ public class Main {
 		
 		List<Point> emptyCell = environment.getEmptyCell();
 		
-		for(int i=0; i<nbTuna; i++) {
+		for(int i=0; i<nbWall; i++) {
 			Point currentCoord = emptyCell.remove(random.nextInt(emptyCell.size()));
-			engine.addAgent(new Tuna(environment, currentCoord.x, currentCoord.y, tunaReproductionTime));
+			engine.addAgent(new Wall(environment, currentCoord.x, currentCoord.y));
 		}
 		
-		for(int i=0; i<nbShark; i++) {
+		for(int i=0; i<nbAttractor; i++) {
 			Point currentCoord = emptyCell.remove(random.nextInt(emptyCell.size()));
-			engine.addAgent(new Shark(environment, currentCoord.x, currentCoord.y, sharkStarvingTime, sharkReproductionTime));
+			Agent t = new Attractor(environment, currentCoord.x, currentCoord.y);
+			engine.addAgent(t);
 		}
+		
+		Point currentCoord = emptyCell.remove(random.nextInt(emptyCell.size()));
+		engine.addAgent(new Hunter(environment, currentCoord.x, currentCoord.y));
 		
 		Render render = new Render(engine, environment, caseSize);
 		engine.addObserver(render);
@@ -75,26 +74,8 @@ public class Main {
 		JFrame frame = new JFrame();
 		
 		JPanel rootPane = new JPanel();
-		rootPane.setLayout(new GridBagLayout());
 		
-		GridBagConstraints gbc = new GridBagConstraints();
-		
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridheight = 2;
-		rootPane.add(render, gbc);
-		
-		gbc.gridx = 1;
-		gbc.gridheight = 1;
-		Graph graphPopulation = new PopulationGraph(600, 400);
-		engine.addObserver(graphPopulation);
-		rootPane.add(graphPopulation, gbc);
-		
-		gbc.gridy = 1;
-		Graph graphRatio = new PopulationRatioGraph(600, 400);
-		engine.addObserver(graphRatio);
-		rootPane.add(graphRatio, gbc);
-		
+		rootPane.add(render);
 		
 		frame.setContentPane(rootPane);
 		frame.setVisible(true);

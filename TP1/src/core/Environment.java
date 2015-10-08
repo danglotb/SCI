@@ -1,6 +1,9 @@
 package core;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,10 @@ public class Environment {
 		this.board = new Agent[boardWidth][boardHeight];
 		this.width = boardWidth;
 		this.height = boardHeight;
+	}
+	
+	public Agent[][] getAgents() {
+		return this.board;
 	}
 
 	public Agent getAgent(int x, int y) {
@@ -83,5 +90,11 @@ public class Environment {
 			}
 		}
 		return cells;
+	}
+
+	public void paint(Graphics g, Rectangle rectangle) {
+		g.setColor(Color.white);
+		g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+
 	}
 }

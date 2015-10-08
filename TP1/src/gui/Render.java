@@ -33,9 +33,7 @@ public class Render extends JPanel implements Observer {
 	
 	
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.white);
-		g.fillRect(0, 0, this.environment.getWidth()*this.caseSize, this.environment.getHeight()*this.caseSize);
-
+			this.environment.paint(g, new Rectangle(0, 0, this.environment.getWidth()*this.caseSize, this.environment.getHeight()*this.caseSize));
 		
 			Iterator<Agent> it = this.engine.getAgents();
 			
