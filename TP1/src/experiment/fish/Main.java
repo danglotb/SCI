@@ -49,11 +49,11 @@ public class Main {
 			return;
 		}
 		
-		int nbTuna = (int)(nbTunaRatio*boardWidth*boardHeight);
-		int nbShark = (int)(nbSharkRatio*boardWidth*boardHeight);
-		int tunaReproductionTime = Math.max(1, (int)(tunaReproductionTimeRatio*boardWidth*boardHeight));
-		int sharkReproductionTime = Math.max(1, (int)(sharkReproductionTimeRatio*boardWidth*boardHeight));
-		int sharkStarvingTime = Math.max(1, (int)(sharkStarvingTimeRatio*boardWidth*boardHeight));
+		int nbTuna = 2000;
+		int nbShark = 500;
+		int tunaReproductionTime = 2;
+		int sharkReproductionTime = 10;
+		int sharkStarvingTime = 7;
 		
 		System.out.println("Tuna number : "+nbTuna);
 		System.out.println("Shark number : "+nbShark);

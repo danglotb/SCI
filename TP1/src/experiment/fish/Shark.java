@@ -65,7 +65,7 @@ public class Shark extends Agent {
 	}
 
 	private Agent getTuna(List<Agent> neighbors) {
-//		Collections.shuffle(neighbors);
+		Collections.shuffle(neighbors);
 		for (Agent a : neighbors) {
 			if (a instanceof Tuna) {
 				return a;
